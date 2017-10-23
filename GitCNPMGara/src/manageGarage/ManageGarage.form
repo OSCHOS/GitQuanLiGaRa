@@ -2,9 +2,14 @@
 
 <Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <NonVisualComponents>
-    <Component class="javax.swing.JMenuItem" name="jMenuItem3">
+    <Component class="javax.swing.JMenuItem" name="jMenuItem1">
       <Properties>
-        <Property name="text" type="java.lang.String" value="jMenuItem3"/>
+        <Property name="text" type="java.lang.String" value="jMenuItem1"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JMenuItem" name="jMenuItem2">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="jMenuItem2"/>
       </Properties>
     </Component>
     <Menu class="javax.swing.JMenuBar" name="jMenuBar1">
@@ -19,62 +24,59 @@
             <Property name="text" type="java.lang.String" value="Edit"/>
           </Properties>
         </Menu>
-        <Menu class="javax.swing.JMenu" name="TraCuuXe">
+        <Menu class="javax.swing.JMenu" name="mRepairCard">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Tra c&#x1ee9;u xe"/>
+            <Property name="text" type="java.lang.String" value="RepairCard"/>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TraCuuXeActionPerformed"/>
-          </Events>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem1">
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem3">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Theo bi&#x1ec3;n s&#x1ed1;"/>
+                <Property name="text" type="java.lang.String" value="L&#xe2;p phi&#x1ebf;u s&#x1eed;a ch&#x1eef;a"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem1ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem3ActionPerformed"/>
               </Events>
-            </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem2">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Theo hi&#x1ec7;u xe"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem2ActionPerformed"/>
-              </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+              </AuxValues>
             </MenuItem>
           </SubComponents>
         </Menu>
         <Menu class="javax.swing.JMenu" name="jMenu3">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Ti&#x1ebf;p Nh&#x1ead;n S&#x1eef;a Ch&#x1eef;a"/>
-          </Properties>
-        </Menu>
-        <Menu class="javax.swing.JMenu" name="jMenu4">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Qu&#x1ea3;n l&#xed; ph&#x1ee5; t&#xf9;ng"/>
+            <Property name="text" type="java.lang.String" value="Thu ti&#x1ec1;n"/>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem4">
+            <MenuItem class="javax.swing.JMenuItem" name="Billing">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Th&#xea;m ph&#x1ee5; t&#xf9;ng"/>
+                <Property name="text" type="java.lang.String" value="Thu ti&#x1ec1;n"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem4ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BillingActionPerformed"/>
               </Events>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem5">
+          </SubComponents>
+        </Menu>
+        <Menu class="javax.swing.JMenu" name="mReport">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="B&#xe1;o c&#xe1;o"/>
+          </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="doanhThu">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Thay &#x111;&#x1ed5;i ph&#x1ee5; t&#xf9;ng"/>
+                <Property name="text" type="java.lang.String" value="Doanh s&#x1ed1;"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem5ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="doanhThuActionPerformed"/>
               </Events>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem6">
+            <MenuItem class="javax.swing.JMenuItem" name="baoCaoPhuTung">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Thay &#x111;&#x1ed5;i s&#x1ed1; l&#x1b0;&#x1ee3;ng"/>
+                <Property name="text" type="java.lang.String" value="Ph&#x1ee5; t&#xf9;ng"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="baoCaoPhuTungActionPerformed"/>
+              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>
@@ -122,12 +124,12 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <EmptySpace min="0" pref="390" max="32767" attributes="0"/>
+              <EmptySpace min="0" pref="786" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <EmptySpace min="0" pref="279" max="32767" attributes="0"/>
+              <EmptySpace min="0" pref="469" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
       </Layout>
