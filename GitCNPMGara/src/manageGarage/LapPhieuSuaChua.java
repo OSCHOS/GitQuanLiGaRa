@@ -10,7 +10,9 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
+import java.time.Clock;
 import java.util.Vector;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
@@ -68,6 +70,7 @@ public class LapPhieuSuaChua extends javax.swing.JInternalFrame {
         jButton3 = new javax.swing.JButton();
         jtxtTienCong = new javax.swing.JTextField();
         jButton4 = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -148,6 +151,11 @@ public class LapPhieuSuaChua extends javax.swing.JInternalFrame {
 
         jSpinner1.setModel(new javax.swing.SpinnerNumberModel(1, 1, 20, 1));
         jSpinner1.setToolTipText("mặc định là 1");
+        jSpinner1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jSpinner1KeyPressed(evt);
+            }
+        });
 
         jtxtPhuTung.setToolTipText("nhập tên PT...");
         jtxtPhuTung.addActionListener(new java.awt.event.ActionListener() {
@@ -178,6 +186,8 @@ public class LapPhieuSuaChua extends javax.swing.JInternalFrame {
             }
         });
 
+        jLabel6.setText("Dữ liệu nhập có lỗi");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -190,14 +200,16 @@ public class LapPhieuSuaChua extends javax.swing.JInternalFrame {
                         .addContainerGap())
                     .addGroup(layout.createSequentialGroup()
                         .addGap(12, 12, 12)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel1)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addGap(20, 20, 20))
-                            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(24, 24, 24)
+                                .addGap(13, 13, 13)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel6))))
+                        .addGap(14, 14, 14)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -259,9 +271,11 @@ public class LapPhieuSuaChua extends javax.swing.JInternalFrame {
                     .addComponent(jtxtTienCong, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel6)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(jButton4)
                 .addGap(29, 29, 29))
         );
@@ -279,6 +293,10 @@ public class LapPhieuSuaChua extends javax.swing.JInternalFrame {
         if(indexMaTN <0) // khong ma nao duoc chon.
             return;
         Vector itemMaTN = (Vector)jComboBoxMaTN.getSelectedItem();
+//        String bienso = String.valueOf(itemMaTN.get(2).toString());
+//        if(bienso.length()<0){
+//            jComboBoxPhuTung.setEnabled(false);
+//        }
         
         int indexPT = jComboBoxPhuTung.getSelectedIndex();
         if(indexPT <0) // khong phu tung nao duoc chon.
@@ -305,13 +323,15 @@ public class LapPhieuSuaChua extends javax.swing.JInternalFrame {
             // Tạo đối tượng thực thi câu lệnh Select
             
             int ret = ps.executeUpdate();
-//            if (ret != -1) {
-//                jLabel6.setText("chi tiet sua chua da duoc them");
-//            }
+            if (ret != -1) {
+                jLabel6.setText("chi tiet sua chua da duoc them");
+            }
+            
             jSpinner1.setValue(1);
             
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(this, e.getMessage(), "LỖI DỮ LIỆU NHẬP!", 1);
+                e.printStackTrace();
         } finally {
             try {
                 if (conn != null) {
@@ -323,11 +343,13 @@ public class LapPhieuSuaChua extends javax.swing.JInternalFrame {
                 if (rs != null) {
                     rs.close();
                 }
-            } catch (Exception ex) {
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(this,ex.getMessage(),"Lỗi",1);
                 ex.printStackTrace();
             }
         }
         loadTableCTSC();
+//        loadCBBoxMaTN();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void loadTableCTSC(){
@@ -432,7 +454,7 @@ public class LapPhieuSuaChua extends javax.swing.JInternalFrame {
 
             // Nếu sách không tồn tại
             if (rs.isBeforeFirst() == false) {
-                JOptionPane.showMessageDialog(this, "'"+jtxtPhuTung.getText()+"'" + "\t khong co");
+                JOptionPane.showMessageDialog(this, "Phụ tùng '"+jtxtPhuTung.getText()+"'" + "\t khong co! Nhập lại hoặc tìm trong combobox");
                 jtxtPhuTung.setText("");
                 return;
             }
@@ -447,6 +469,7 @@ public class LapPhieuSuaChua extends javax.swing.JInternalFrame {
 
              jComboBoxPhuTung.setModel(cmbModel);
              jtxtPhuTung.setText("");
+             jComboBoxPhuTung.setBackground(Color.YELLOW);
              
             
         } catch (Exception e) {
@@ -508,10 +531,12 @@ public class LapPhieuSuaChua extends javax.swing.JInternalFrame {
 
                 // Thêm một dòng vào table model
                 cmbModel.addElement(data);
+                jComboBoxTienCong.setBackground(Color.YELLOW);
             }
 
              jComboBoxTienCong.setModel(cmbModel);
              jtxtTienCong.setText("");
+             
             
         } catch (Exception e) {
             e.printStackTrace();
@@ -579,6 +604,11 @@ public class LapPhieuSuaChua extends javax.swing.JInternalFrame {
     private void jtxtPhuTungActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxtPhuTungActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jtxtPhuTungActionPerformed
+
+    private void jSpinner1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jSpinner1KeyPressed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_jSpinner1KeyPressed
     
     private void loadCBBoxTienCong(){
     Connection conn = null;
@@ -787,6 +817,7 @@ public class LapPhieuSuaChua extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
