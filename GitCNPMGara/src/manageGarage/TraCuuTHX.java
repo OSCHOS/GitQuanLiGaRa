@@ -109,7 +109,7 @@ public class TraCuuTHX extends javax.swing.JInternalFrame {
         DefaultTableModel tb= new DefaultTableModel (h,0);
         try {
              // TODO add your handling code here:
-             Connection a=DriverManager.getConnection("jdbc:sqlserver://ASUS-PC:1433;databaseName=GARAOTO","sa","1");
+             Connection a=DriverManager.getConnection("jdbc:sqlserver://Administrator\\mssqlserver:1433;databaseName=garaoto;user=cnpm;password=sa");
              String select ="select BIENSO,TENKH, TENHX,TONGTIEN\n" +
 "	from TIEPNHAN, HIEUXE, HOADON \n" +
 "	WHERE TENHX LIKE ?  AND TIEPNHAN.STT = HOADON.STT AND TIEPNHAN.MAHX = HIEUXE.MAHX";

@@ -207,11 +207,11 @@ public class TiepNhanSuaChua extends javax.swing.JInternalFrame {
         PreparedStatement ps = null;
         ResultSet rs = null;
         
-        String dbURL = "jdbc:sqlserver://127.0.0.1:1433;databaseName=GARAOTO";
+        String dbURL = "jdbc:sqlserver://Administrator\\mssqlserver:1433;databaseName=garaoto;user=cnpm;password=sa";
         String insert = "INSERT INTO TIEPNHAN (TENKH,BIENSO,idHX,DIACHI,SDT,NGAYNHAN) VALUES(?,?,?,?,?,?)";
         
         try {
-            conn = DriverManager.getConnection(dbURL,"sa","1");
+            conn = DriverManager.getConnection(dbURL);
             ps = conn.prepareStatement(insert);
         } catch (SQLException ex) {
             Logger.getLogger(TiepNhanSuaChua.class.getName()).log(Level.SEVERE, "Loi connect", ex);

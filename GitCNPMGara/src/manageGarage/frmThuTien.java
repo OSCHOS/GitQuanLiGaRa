@@ -31,7 +31,7 @@ import java.text.SimpleDateFormat;
  * @author Administrator
  */
 public class frmThuTien extends javax.swing.JInternalFrame {
-    private String header[] = {"Mã hóa đơn", "Mã luợt tiếp nhập","ten kh","bien so", "Ngày thu","Tổng tiền"};
+    private String header[] = {"id HD", "IdTN","Tên KH","Biển số", "Ngày thu","Tổng tiền"};
     private DefaultTableModel tblModel = new DefaultTableModel(header, 0);
     /**
      * Creates new form frmThuTien
@@ -64,6 +64,7 @@ public class frmThuTien extends javax.swing.JInternalFrame {
         jComboBox1 = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
@@ -72,8 +73,9 @@ public class frmThuTien extends javax.swing.JInternalFrame {
         setTitle("Lập phiếu thu tiền");
         setToolTipText("");
         setMinimumSize(new java.awt.Dimension(68, 33));
-        setNormalBounds(new java.awt.Rectangle(0, 0, 68, 0));
-        setPreferredSize(new java.awt.Dimension(405, 325));
+        setPreferredSize(new java.awt.Dimension(500, 390));
+        setRequestFocusEnabled(false);
+        setVisible(true);
 
         jLabel2.setText(" Lượt tiếp nhận");
 
@@ -84,6 +86,20 @@ public class frmThuTien extends javax.swing.JInternalFrame {
             }
         });
 
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
+            },
+            new String [] {
+                "idHD", "idTN", "Tên KH", "Biển số", "Ngày thu", "Tổng tiền"
+            }
+        ));
         jTable1.setMaximumSize(new java.awt.Dimension(2147483647, 2147483647));
         jTable1.setMinimumSize(new java.awt.Dimension(64, 64));
         jTable1.setPreferredSize(new java.awt.Dimension(300, 300));
@@ -98,34 +114,43 @@ public class frmThuTien extends javax.swing.JInternalFrame {
 
         jLabel6.setText("Ngày");
 
+        jButton2.setText("Xóa");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jButton1)
+                        .addGap(66, 66, 66))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jButton2)
+                        .addGap(158, 158, 158))))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(34, 34, 34)
-                        .addComponent(jLabel3))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(38, 38, 38)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel6)
-                                .addGap(77, 77, 77)
+                                .addGap(81, 81, 81)
                                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel3)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel2)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addGap(20, 20, 20))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(67, 67, 67))
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 464, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -135,17 +160,19 @@ public class frmThuTien extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel6)
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 23, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2)
                     .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 23, Short.MAX_VALUE)
-                .addComponent(jButton1)
                 .addGap(18, 18, 18)
+                .addComponent(jButton1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
                 .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20))
+                .addGap(18, 18, 18)
+                .addComponent(jButton2)
+                .addGap(24, 24, 24))
         );
 
         pack();
@@ -237,7 +264,7 @@ public class frmThuTien extends javax.swing.JInternalFrame {
         
             int ret = ps.executeUpdate();// ee msảồi sai update ko dùng cho câu lệnh select // u update ko ppy cua ong thay
             if (ret != -1) {
-                jLabel3.setText("The HoaDon has been insertet");
+                jLabel3.setText("HOADON đã được thêm");
             }else{
                 jLabel3.setText("khong thanh cong");
             }
@@ -263,6 +290,53 @@ public class frmThuTien extends javax.swing.JInternalFrame {
         loadtable();
         loadCBBox();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+              int indexOfSelectedRow = jTable1.getSelectedRow();
+        if (indexOfSelectedRow == -1) {
+            JOptionPane.showConfirmDialog(this, "phải chọn 1 HOADON để xóa!", "Information", JOptionPane.INFORMATION_MESSAGE);
+            return;
+        }
+        int ret = JOptionPane.showConfirmDialog(this, "Xóa HOADON đã chọn?", "Confirm", JOptionPane.YES_NO_OPTION);
+        if (ret != JOptionPane.YES_OPTION) {
+            return;
+        }
+
+        int idHD = Integer.parseInt(jTable1.getModel().getValueAt(indexOfSelectedRow, 0).toString());
+
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        String deletesql = "Delete From HOADON where idhd = ?";
+        String dbURL = "jdbc:sqlserver://Administrator\\mssqlserver:1433;databaseName=garaoto;user=cnpm;password=sa";
+        try {
+            conn = DriverManager.getConnection(dbURL);
+            ps = conn.prepareStatement(deletesql);
+            ps.setInt(1, idHD);
+            ret = ps.executeUpdate();
+            if (ret != -1) {
+                JOptionPane.showMessageDialog(this, " 1 HoaDon đã xóa");
+            }
+            this.loadtable();
+            loadCBBox();
+            jComboBox1.setEnabled(true);
+            jButton1.setEnabled(true);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        } finally {
+            try {
+                if (conn != null) {
+                    conn.close();
+                }
+                if (ps != null) {
+                    ps.close();
+                }
+            } catch (Exception ex2) {
+                ex2.printStackTrace();
+            }
+        }
+        
+    }//GEN-LAST:event_jButton2ActionPerformed
     
     
     private void loadtable(){
@@ -333,6 +407,7 @@ public class frmThuTien extends javax.swing.JInternalFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

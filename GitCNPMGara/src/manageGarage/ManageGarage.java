@@ -31,13 +31,19 @@ public class ManageGarage extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
+        jMenu4 = new javax.swing.JMenu();
         mRepairCard = new javax.swing.JMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
+        jMenu7 = new javax.swing.JMenu();
+        jMenuItem4 = new javax.swing.JMenuItem();
+        jMenuItem5 = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
         Billing = new javax.swing.JMenuItem();
         mReport = new javax.swing.JMenu();
         doanhThu = new javax.swing.JMenuItem();
         baoCaoPhuTung = new javax.swing.JMenuItem();
+        jMenu5 = new javax.swing.JMenu();
+        jMenu6 = new javax.swing.JMenu();
 
         jMenuItem1.setText("jMenuItem1");
 
@@ -62,7 +68,10 @@ public class ManageGarage extends javax.swing.JFrame {
         jMenu2.setText("Edit");
         jMenuBar1.add(jMenu2);
 
-        mRepairCard.setText("RepairCard");
+        jMenu4.setText("Tiếp nhận");
+        jMenuBar1.add(jMenu4);
+
+        mRepairCard.setText("LPSC");
 
         jMenuItem3.setText("Lâp phiếu sửa chữa");
         jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
@@ -73,6 +82,16 @@ public class ManageGarage extends javax.swing.JFrame {
         mRepairCard.add(jMenuItem3);
 
         jMenuBar1.add(mRepairCard);
+
+        jMenu7.setText("Tra cứu");
+
+        jMenuItem4.setText("Biển số");
+        jMenu7.add(jMenuItem4);
+
+        jMenuItem5.setText("Hiệu xe");
+        jMenu7.add(jMenuItem5);
+
+        jMenuBar1.add(jMenu7);
 
         jMenu3.setText("Thu tiền");
 
@@ -105,6 +124,12 @@ public class ManageGarage extends javax.swing.JFrame {
         mReport.add(baoCaoPhuTung);
 
         jMenuBar1.add(mReport);
+
+        jMenu5.setText("QL phụ tùng");
+        jMenuBar1.add(jMenu5);
+
+        jMenu6.setText("Quy định");
+        jMenuBar1.add(jMenu6);
 
         setJMenuBar(jMenuBar1);
 
@@ -139,7 +164,9 @@ public class ManageGarage extends javax.swing.JFrame {
     }//GEN-LAST:event_doanhThuActionPerformed
 
     private void baoCaoPhuTungActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_baoCaoPhuTungActionPerformed
-
+        BaoCaoTon frmBCT=new BaoCaoTon();
+        jDesktopPane1.add(frmBCT);
+        frmBCT.setVisible(true);
     }//GEN-LAST:event_baoCaoPhuTungActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
@@ -192,10 +219,16 @@ public class ManageGarage extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenu jMenu4;
+    private javax.swing.JMenu jMenu5;
+    private javax.swing.JMenu jMenu6;
+    private javax.swing.JMenu jMenu7;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     public javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenu mRepairCard;
     private javax.swing.JMenu mReport;
     // End of variables declaration//GEN-END:variables

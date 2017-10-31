@@ -24,9 +24,14 @@
             <Property name="text" type="java.lang.String" value="Edit"/>
           </Properties>
         </Menu>
+        <Menu class="javax.swing.JMenu" name="jMenu4">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Ti&#x1ebf;p nh&#x1ead;n"/>
+          </Properties>
+        </Menu>
         <Menu class="javax.swing.JMenu" name="mRepairCard">
           <Properties>
-            <Property name="text" type="java.lang.String" value="RepairCard"/>
+            <Property name="text" type="java.lang.String" value="LPSC"/>
           </Properties>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem3">
@@ -39,6 +44,23 @@
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
               </AuxValues>
+            </MenuItem>
+          </SubComponents>
+        </Menu>
+        <Menu class="javax.swing.JMenu" name="jMenu7">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Tra c&#x1ee9;u"/>
+          </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem4">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Bi&#x1ec3;n s&#x1ed1;"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem5">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Hi&#x1ec7;u xe"/>
+              </Properties>
             </MenuItem>
           </SubComponents>
         </Menu>
@@ -79,6 +101,16 @@
               </Events>
             </MenuItem>
           </SubComponents>
+        </Menu>
+        <Menu class="javax.swing.JMenu" name="jMenu5">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="QL ph&#x1ee5; t&#xf9;ng"/>
+          </Properties>
+        </Menu>
+        <Menu class="javax.swing.JMenu" name="jMenu6">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Quy &#x111;&#x1ecb;nh"/>
+          </Properties>
         </Menu>
       </SubComponents>
     </Menu>
