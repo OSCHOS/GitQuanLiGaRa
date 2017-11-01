@@ -32,18 +32,22 @@ public class ManageGarage extends javax.swing.JFrame {
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
         jMenu4 = new javax.swing.JMenu();
-        mRepairCard = new javax.swing.JMenu();
-        jMenuItem3 = new javax.swing.JMenuItem();
-        jMenu7 = new javax.swing.JMenu();
+        jMenu5 = new javax.swing.JMenu();
         jMenuItem4 = new javax.swing.JMenuItem();
         jMenuItem5 = new javax.swing.JMenuItem();
+        jMenuItem6 = new javax.swing.JMenuItem();
+        jMenu6 = new javax.swing.JMenu();
+        jMenuItem7 = new javax.swing.JMenuItem();
+        jMenuItem8 = new javax.swing.JMenuItem();
+        jMenu7 = new javax.swing.JMenu();
+        jMenuItem9 = new javax.swing.JMenuItem();
+        mRepairCard = new javax.swing.JMenu();
+        jMenuItem3 = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
         Billing = new javax.swing.JMenuItem();
         mReport = new javax.swing.JMenu();
         doanhThu = new javax.swing.JMenuItem();
         baoCaoPhuTung = new javax.swing.JMenuItem();
-        jMenu5 = new javax.swing.JMenu();
-        jMenu6 = new javax.swing.JMenu();
 
         jMenuItem1.setText("jMenuItem1");
 
@@ -59,7 +63,7 @@ public class ManageGarage extends javax.swing.JFrame {
         );
         jDesktopPane1Layout.setVerticalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 469, Short.MAX_VALUE)
+            .addGap(0, 471, Short.MAX_VALUE)
         );
 
         jMenu1.setText("File");
@@ -67,11 +71,69 @@ public class ManageGarage extends javax.swing.JFrame {
 
         jMenu2.setText("Edit");
         jMenuBar1.add(jMenu2);
-
-        jMenu4.setText("Tiếp nhận");
         jMenuBar1.add(jMenu4);
 
-        mRepairCard.setText("LPSC");
+        jMenu5.setText("Quản lí PT");
+
+        jMenuItem4.setText("Thêm phụ tùng");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
+        jMenu5.add(jMenuItem4);
+
+        jMenuItem5.setText("Thay đổi giá PT");
+        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem5ActionPerformed(evt);
+            }
+        });
+        jMenu5.add(jMenuItem5);
+
+        jMenuItem6.setText("Nhập kho");
+        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem6ActionPerformed(evt);
+            }
+        });
+        jMenu5.add(jMenuItem6);
+
+        jMenuBar1.add(jMenu5);
+
+        jMenu6.setText("Tra Cứu Xe");
+
+        jMenuItem7.setText("Theo Biển Số");
+        jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem7ActionPerformed(evt);
+            }
+        });
+        jMenu6.add(jMenuItem7);
+
+        jMenuItem8.setText("Theo Hiệu Xe");
+        jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem8ActionPerformed(evt);
+            }
+        });
+        jMenu6.add(jMenuItem8);
+
+        jMenuBar1.add(jMenu6);
+
+        jMenu7.setText("Tiếp nhận");
+
+        jMenuItem9.setText("Tiếp nhận");
+        jMenuItem9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem9ActionPerformed(evt);
+            }
+        });
+        jMenu7.add(jMenuItem9);
+
+        jMenuBar1.add(jMenu7);
+
+        mRepairCard.setText("RepairCard");
 
         jMenuItem3.setText("Lâp phiếu sửa chữa");
         jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
@@ -82,16 +144,6 @@ public class ManageGarage extends javax.swing.JFrame {
         mRepairCard.add(jMenuItem3);
 
         jMenuBar1.add(mRepairCard);
-
-        jMenu7.setText("Tra cứu");
-
-        jMenuItem4.setText("Biển số");
-        jMenu7.add(jMenuItem4);
-
-        jMenuItem5.setText("Hiệu xe");
-        jMenu7.add(jMenuItem5);
-
-        jMenuBar1.add(jMenu7);
 
         jMenu3.setText("Thu tiền");
 
@@ -124,12 +176,6 @@ public class ManageGarage extends javax.swing.JFrame {
         mReport.add(baoCaoPhuTung);
 
         jMenuBar1.add(mReport);
-
-        jMenu5.setText("QL phụ tùng");
-        jMenuBar1.add(jMenu5);
-
-        jMenu6.setText("Quy định");
-        jMenuBar1.add(jMenu6);
 
         setJMenuBar(jMenuBar1);
 
@@ -164,9 +210,7 @@ public class ManageGarage extends javax.swing.JFrame {
     }//GEN-LAST:event_doanhThuActionPerformed
 
     private void baoCaoPhuTungActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_baoCaoPhuTungActionPerformed
-        BaoCaoTon frmBCT=new BaoCaoTon();
-        jDesktopPane1.add(frmBCT);
-        frmBCT.setVisible(true);
+
     }//GEN-LAST:event_baoCaoPhuTungActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
@@ -175,6 +219,49 @@ public class ManageGarage extends javax.swing.JFrame {
         frmCTSC.setVisible(true);
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        // TODO add your handling code here:
+        ThemPhuTung frmTPT=new ThemPhuTung();
+        jDesktopPane1.add(frmTPT);
+        frmTPT.setVisible(true);
+        
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
+
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+        // TODO add your handling code here:
+        ThayDoiPhuTung frmTDPT=new ThayDoiPhuTung();
+        jDesktopPane1.add(frmTDPT);
+        frmTDPT.setVisible(true);
+    }//GEN-LAST:event_jMenuItem5ActionPerformed
+
+    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+        // TODO add your handling code here:
+        NhapPhuTung frmNPT=new NhapPhuTung();
+        jDesktopPane1.add(frmNPT);
+        frmNPT.setVisible(true);
+    }//GEN-LAST:event_jMenuItem6ActionPerformed
+
+    private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
+        // TODO add your handling code here:
+        TraCuuTBS frmNPT=new TraCuuTBS();
+        jDesktopPane1.add(frmNPT);
+        frmNPT.setVisible(true);
+    }//GEN-LAST:event_jMenuItem7ActionPerformed
+
+    private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
+        // TODO add your handling code here:
+        TraCuuTHX frmNPT=new TraCuuTHX();
+        jDesktopPane1.add(frmNPT);
+        frmNPT.setVisible(true);
+    }//GEN-LAST:event_jMenuItem8ActionPerformed
+
+    private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
+        TiepNhanSuaChua frmTNSC=new TiepNhanSuaChua();
+        jDesktopPane1.add(frmTNSC);
+        frmTNSC.setVisible(true);
+    }//GEN-LAST:event_jMenuItem9ActionPerformed
+
+                                                  
     /**
      * @param args the command line arguments
      */
@@ -229,6 +316,10 @@ public class ManageGarage extends javax.swing.JFrame {
     public javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JMenuItem jMenuItem6;
+    private javax.swing.JMenuItem jMenuItem7;
+    private javax.swing.JMenuItem jMenuItem8;
+    private javax.swing.JMenuItem jMenuItem9;
     private javax.swing.JMenu mRepairCard;
     private javax.swing.JMenu mReport;
     // End of variables declaration//GEN-END:variables

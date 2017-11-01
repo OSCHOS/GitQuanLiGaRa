@@ -25,13 +25,79 @@
           </Properties>
         </Menu>
         <Menu class="javax.swing.JMenu" name="jMenu4">
+        </Menu>
+        <Menu class="javax.swing.JMenu" name="jMenu5">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Qu&#x1ea3;n l&#xed; PT"/>
+          </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem4">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Th&#xea;m ph&#x1ee5; t&#xf9;ng"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem4ActionPerformed"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem5">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Thay &#x111;&#x1ed5;i gi&#xe1; PT"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem5ActionPerformed"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem6">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Nh&#x1ead;p kho"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem6ActionPerformed"/>
+              </Events>
+            </MenuItem>
+          </SubComponents>
+        </Menu>
+        <Menu class="javax.swing.JMenu" name="jMenu6">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Tra C&#x1ee9;u Xe"/>
+          </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem7">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Theo Bi&#x1ec3;n S&#x1ed1;"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem7ActionPerformed"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem8">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Theo Hi&#x1ec7;u Xe"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem8ActionPerformed"/>
+              </Events>
+            </MenuItem>
+          </SubComponents>
+        </Menu>
+        <Menu class="javax.swing.JMenu" name="jMenu7">
           <Properties>
             <Property name="text" type="java.lang.String" value="Ti&#x1ebf;p nh&#x1ead;n"/>
           </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem9">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Ti&#x1ebf;p nh&#x1ead;n"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem9ActionPerformed"/>
+              </Events>
+            </MenuItem>
+          </SubComponents>
         </Menu>
         <Menu class="javax.swing.JMenu" name="mRepairCard">
           <Properties>
-            <Property name="text" type="java.lang.String" value="LPSC"/>
+            <Property name="text" type="java.lang.String" value="RepairCard"/>
           </Properties>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem3">
@@ -44,23 +110,6 @@
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
               </AuxValues>
-            </MenuItem>
-          </SubComponents>
-        </Menu>
-        <Menu class="javax.swing.JMenu" name="jMenu7">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Tra c&#x1ee9;u"/>
-          </Properties>
-          <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem4">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Bi&#x1ec3;n s&#x1ed1;"/>
-              </Properties>
-            </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem5">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Hi&#x1ec7;u xe"/>
-              </Properties>
             </MenuItem>
           </SubComponents>
         </Menu>
@@ -101,16 +150,6 @@
               </Events>
             </MenuItem>
           </SubComponents>
-        </Menu>
-        <Menu class="javax.swing.JMenu" name="jMenu5">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="QL ph&#x1ee5; t&#xf9;ng"/>
-          </Properties>
-        </Menu>
-        <Menu class="javax.swing.JMenu" name="jMenu6">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Quy &#x111;&#x1ecb;nh"/>
-          </Properties>
         </Menu>
       </SubComponents>
     </Menu>
@@ -161,7 +200,7 @@
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <EmptySpace min="0" pref="469" max="32767" attributes="0"/>
+              <EmptySpace min="0" pref="471" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
       </Layout>
