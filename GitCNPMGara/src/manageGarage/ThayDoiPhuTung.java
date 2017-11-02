@@ -5,7 +5,6 @@
  */
 package manageGarage;
 
-import Process.Check;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -53,6 +52,7 @@ public class ThayDoiPhuTung extends javax.swing.JInternalFrame {
         bCapNhat = new javax.swing.JButton();
         bXoa = new javax.swing.JButton();
         mStatus = new javax.swing.JLabel();
+        jSpinner1 = new javax.swing.JSpinner();
 
         setClosable(true);
         setIconifiable(true);
@@ -77,7 +77,7 @@ public class ThayDoiPhuTung extends javax.swing.JInternalFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "idPT", "Tên phụ tùng", "Giá", "Số lượng tồn"
+                "Mã phụ tùng", "Tên phụ tùng", "Giá", "Số lượng tồn"
             }
         ));
         jScrollPane1.setViewportView(jtbPhuTung);
@@ -104,6 +104,8 @@ public class ThayDoiPhuTung extends javax.swing.JInternalFrame {
 
         mStatus.setText("Status:");
 
+        jSpinner1.setModel(new javax.swing.SpinnerNumberModel(10000, 10000, 10000000, 10000));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -125,16 +127,19 @@ public class ThayDoiPhuTung extends javax.swing.JInternalFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(bTimKiem))
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 385, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(mStatus, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE))
-                                    .addGap(18, 18, 18)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(jtxtMaPhuTung)
-                                        .addComponent(jtxtGiaMoi, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(mStatus, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE))
+                                        .addGap(18, 18, 18)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(jtxtMaPhuTung)
+                                            .addComponent(jtxtGiaMoi, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE))))
+                                .addGap(33, 33, 33)
+                                .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -157,8 +162,9 @@ public class ThayDoiPhuTung extends javax.swing.JInternalFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jtxtGiaMoi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                    .addComponent(jtxtGiaMoi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
                 .addComponent(bCapNhat)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(mStatus)
@@ -183,7 +189,7 @@ public class ThayDoiPhuTung extends javax.swing.JInternalFrame {
             // Nếu tìm kiếm theo title
             if (jtxtTenPhuTung.getText().length() > 0) {
                 sql = sql + " where TENPT like N'%" + jtxtTenPhuTung.getText() + "%'";
-//                System.out.println("AT 183   "+jtxtTenPhuTung.getText());
+                System.out.println("AT 183   "+jtxtTenPhuTung.getText());
             }
 
             // Tạo đối tượng thực thi câu lệnh Select
@@ -271,7 +277,7 @@ public class ThayDoiPhuTung extends javax.swing.JInternalFrame {
         try {
             conn = DriverManager.getConnection(dbURL);
             ps = conn.prepareStatement(deletesql);
-            ps.setString(1,(String) jtbPhuTung.getValueAt(jtbPhuTung.getSelectedRow(), 0));
+            ps.setString(1,(String) jtbPhuTung.getValueAt(jtbPhuTung.getSelectedRow(), 0));//m coi llaij dùm t
             ret = ps.executeUpdate();
             if (ret != -1) {
                 JOptionPane.showMessageDialog(this, "Xóa thành công");
@@ -313,25 +319,10 @@ public class ThayDoiPhuTung extends javax.swing.JInternalFrame {
         ResultSet rs = null;
 
         String dbURL = "jdbc:sqlserver://127.0.0.1:1433;databaseName=GARAOTO;user=sa;password=1";
-        
         try {
             conn = DriverManager.getConnection(dbURL);
             ps = conn.prepareStatement(update);
 
-            if(this.jtxtGiaMoi.getText().isEmpty()){
-                JOptionPane.showMessageDialog(null, "Giá mới không được để trống","Thông báo lỗi", 1);
-                return;
-            }else
-            if(Check.checkSb(this.jtxtGiaMoi.getText())==true){
-                JOptionPane.showMessageDialog(null, "Giá mới không được có kí tự đặc biệt","Thông báo lỗi",1);
-                return;
-            }else
-            if(Check.checkNum2(this.jtxtGiaMoi.getText())==true){
-                JOptionPane.showMessageDialog(null,"Giá mới không được nhập chữ","Thông báo lỗi",1);
-                return;
-            }
-            
-            
             ps.setString(2, jtxtMaPhuTung.getText());
             ps.setInt(1, Integer.valueOf(jtxtGiaMoi.getText()));
 
@@ -377,6 +368,7 @@ public class ThayDoiPhuTung extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JSpinner jSpinner1;
     private javax.swing.JTable jtbPhuTung;
     private javax.swing.JTextField jtxtGiaMoi;
     private javax.swing.JTextField jtxtMaPhuTung;

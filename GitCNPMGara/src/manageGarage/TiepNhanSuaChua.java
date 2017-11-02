@@ -5,106 +5,28 @@
  */
 package manageGarage;
 
-import Process.Check;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.List;
-import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.DefaultComboBoxModel;
-import javax.swing.JOptionPane;
-import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author ASUS
  */
 public class TiepNhanSuaChua extends javax.swing.JInternalFrame {
-    private String header[] = {"tên chủ xe","biển số", "hiệu xe", "SDT", "địa chỉ", "ngày nhận",};
-    private DefaultTableModel tblModel = new DefaultTableModel(header, 0);
+
     /**
      * Creates new form TiepNhanSuuChua
      */
     public TiepNhanSuaChua() {
         initComponents();
-        //idHX= new Lis<Integer>();
-        LoadDataCombo();
-        loadTbl();
-        
     }
-    
-    private void LoadDataCombo(){
-     Connection conn = null;
-        Statement st = null;
-        ResultSet rs = null;
-        String dbURL = "jdbc:sqlserver://127.0.0.1:1433;databaseName=GARAOTO";
 
-        try {
-            conn = DriverManager.getConnection(dbURL,"sa","1");
-            // gòi. dm lô tuyồồn
-
-            // Câu lệnh xem dữ liệu
-            String sql = "select idhx, tenhx from hieuxe";
-
-            // Tạo đối tượng thực thi câu lệnh Select
-            st = conn.createStatement();
-
-            // Thực thi 
-            rs = st.executeQuery(sql);
-            Vector data = null;
-            DefaultComboBoxModel cmbModel = new DefaultComboBoxModel();
-
-            // Nếu sách không tồn tại
-            if (rs.isBeforeFirst() == false) {
-                JOptionPane.showMessageDialog(this, "Không có lượt tiếp nhận mới!");
-                jComboBox1.setEnabled(false);
-                
-                
-                
-                
-                return;
-            }
-
-            // Trong khi chưa hết dữ liệu
-            while (rs.next()) {
-                data = new Vector();
-                data.add(rs.getInt("idhx"));
-                data.add(rs.getString("tenhx"));
-
-                // Thêm một dòng vào table model
-                cmbModel.addElement(data);
-            }
-
-             jComboBox1.setModel(cmbModel);
-
-            
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            try {
-                if (conn != null) {
-                    conn.close();
-                }
-                if (st != null) {
-                    st.close();
-                }
-                if (rs != null) {
-                    rs.close();
-                }
-            } catch (Exception ex) {
-                ex.printStackTrace();
-            }
-        }
-              
-    }
-    
-    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -124,13 +46,15 @@ public class TiepNhanSuaChua extends javax.swing.JInternalFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jtxtSDT = new javax.swing.JTextField();
+        jtxtNgayNhan = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
         mStatus = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
 
-        setClosable(true);
         setIconifiable(true);
         setMaximizable(true);
         setResizable(true);
@@ -152,12 +76,9 @@ public class TiepNhanSuaChua extends javax.swing.JInternalFrame {
 
         jLabel6.setText("SDT");
 
-        jtxtSDT.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtxtSDTActionPerformed(evt);
-            }
-        });
+        jLabel7.setText("Hẹn trả");
 
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "HONDA", "SUZUKI", "FORD", "TOYOTA", " " }));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox1ActionPerformed(evt);
@@ -186,6 +107,8 @@ public class TiepNhanSuaChua extends javax.swing.JInternalFrame {
 
         mStatus.setText("Status:");
 
+        jLabel8.setText("email");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -205,6 +128,7 @@ public class TiepNhanSuaChua extends javax.swing.JInternalFrame {
                                     .addComponent(jLabel4))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel8)
                                     .addGroup(layout.createSequentialGroup()
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                             .addComponent(jtxtTenChuXe, javax.swing.GroupLayout.DEFAULT_SIZE, 147, Short.MAX_VALUE)
@@ -219,10 +143,16 @@ public class TiepNhanSuaChua extends javax.swing.JInternalFrame {
                                                 .addComponent(jLabel6)
                                                 .addGap(18, 18, 18)
                                                 .addComponent(jtxtSDT, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                        .addGap(15, 15, 15)
-                                        .addComponent(jLabel5)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(12, 12, 12)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(jLabel5)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(jLabel7)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(jtxtNgayNhan, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))))
                                     .addComponent(mStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 504, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addComponent(jLabel2))
                         .addContainerGap(44, Short.MAX_VALUE))
@@ -244,10 +174,14 @@ public class TiepNhanSuaChua extends javax.swing.JInternalFrame {
                     .addComponent(jLabel4)
                     .addComponent(jtxtDiaChi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6)
-                    .addComponent(jtxtSDT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jtxtSDT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel7)
+                    .addComponent(jtxtNgayNhan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
+                .addGap(11, 11, 11)
+                .addComponent(jLabel8)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
                 .addComponent(jButton1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(mStatus)
@@ -264,19 +198,17 @@ public class TiepNhanSuaChua extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jtxtDiaChiActionPerformed
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here
-        Connection conn = null;
+         Connection conn = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
-        int indexHX = jComboBox1.getSelectedIndex();
-        if(indexHX <0) // khong ma nao duoc chon.
-            return;
-        Vector itemMaTN = (Vector)jComboBox1.getSelectedItem();
+        
         String dbURL = "jdbc:sqlserver://127.0.0.1:1433;databaseName=GARAOTO";
-        String insert = "INSERT INTO TIEPNHAN (TENKH,BIENSO,idHX,DIACHI,SDT,NGAYNHAN) VALUES(?,?,?,?,?,getdate())";
+        String insert = "INSERT INTO TIEPNHAN (TENKH,BIENSO,idHX,DIACHI,SDT,NGAYNHAN) VALUES(?,?,?,?,?,?)";
         
         try {
             conn = DriverManager.getConnection(dbURL,"sa","1");
@@ -286,38 +218,20 @@ public class TiepNhanSuaChua extends javax.swing.JInternalFrame {
         }
             
         try {
-            if(Check.checkNum(this.jtxtTenChuXe.getText())==true){
-                JOptionPane.showMessageDialog(null, "Tên khách hàng không được có số","Thông báo lỗi",1);
-                return;
-            }else
-            if(Check.checkSb(this.jtxtTenChuXe.getText())==true){
-                JOptionPane.showMessageDialog(null, "Tên khách hàng không được có kí tự đặc biệt","Thông báo lỗi",1);
-                return;
-            }else
-            if(Check.checkNum2(this.jtxtSDT.getText())==true){
-                JOptionPane.showMessageDialog(null, "Số điện thoại không được nhập chữ","Thông báo lỗi",2);
-                return;
-            }
-            
-            
-            
             ps.setString(1, jtxtTenChuXe.getText());
-            ps.setString(2, jtxtBienSo.getText());
-  //          ps.setString(6,jtxtNgayNhan.getText());
             ps.setString(4, jtxtDiaChi.getText());
+            ps.setDate(6,Date.valueOf(jtxtNgayNhan.getText()));
+            ps.setString(2, jtxtBienSo.getText());
             ps.setString(5, jtxtSDT.getText());
-            ps.setInt(3, Integer.parseInt(itemMaTN.get(0).toString()));
+            ps.setInt(3, jComboBox1.getSelectedIndex()+1);
             
             
           
             int ret = ps.executeUpdate();
             mStatus.setText("Tiếp nhận thành công.");
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, e.getMessage(), e.getLocalizedMessage(), 1);
             e.printStackTrace();
-            
-         // tạm xong rồi. m làm mấy cái bắt lỗi giao diên, nhập tên blabla đi. ko làm đc kêu tuyến   
-            
+            mStatus.setText("Trùng lắp thông tin.");
         } finally {
             try {
                 if (conn != null) {
@@ -335,7 +249,7 @@ public class TiepNhanSuaChua extends javax.swing.JInternalFrame {
                 ex2.printStackTrace();
             }
         }
-        loadTbl();
+                                           
 
                                       
                                        
@@ -343,78 +257,6 @@ public class TiepNhanSuaChua extends javax.swing.JInternalFrame {
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jtxtSDTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxtSDTActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jtxtSDTActionPerformed
-    private void loadTbl(){
-        Connection conn = null;
-        Statement st = null;
-        ResultSet rs = null;
-        String dbURL = "jdbc:sqlserver://127.0.0.1:1433;databaseName=GARAOTO;user=sa;password=1";
-
-        int index = jComboBox1.getSelectedIndex();
-        if(index <0) // khong kho nao duoc chon.
-            return;
-        Vector item = (Vector)jComboBox1.getSelectedItem();
-  //      int idTN = Integer.parseInt(item.get(0).toString());
-        
-        try {
-            conn = DriverManager.getConnection(dbURL);
-
-            // măt lặặt duy tăt unikey cho bô. duma
-            // Câu lệnh xem dữ liệu
-            String sql = "select * from tiepnhan where day(ngaynhan)=day(getdate()) and month(ngaynhan)=month(getdate()) and year(ngaynhan)=year(getdate())";
-            
-
-            // Tạo đối tượng thực thi câu lệnh Select
-            st = conn.createStatement();
-
-            // Thực thi 
-            rs = st.executeQuery(sql);
-            Vector data = null;
-
-            tblModel.setRowCount(0);
-
-            // Nếu sách không tồn tại
-            if (rs.isBeforeFirst() == false) {
-                JOptionPane.showMessageDialog(this, "CTSC khong co!");
-                return;
-            }
-
-            // Trong khi chưa hết dữ liệu
-            while (rs.next()) {
-                data = new Vector();
-                data.add(rs.getString("tenkh"));
-                data.add(rs.getString("bienso"));
-                data.add(rs.getString("idhx"));
-                data.add(rs.getString("sdt"));
-                data.add(rs.getString("diachi"));
-                data.add(rs.getString("ngaynhan"));
-                // Thêm một dòng vào table model
-                tblModel.addRow(data);
-            }
-
-            jTable1.setModel(tblModel); // Thêm dữ liệu vào table
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            try {
-                if (conn != null) {
-                    conn.close();
-                }
-                if (st != null) {
-                    st.close();
-                }
-                if (rs != null) {
-                    rs.close();
-                }
-            } catch (Exception ex) {
-                ex.printStackTrace();
-            }
-        }
-    }
-    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
@@ -425,10 +267,13 @@ public class TiepNhanSuaChua extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField jtxtBienSo;
     private javax.swing.JTextField jtxtDiaChi;
+    private javax.swing.JTextField jtxtNgayNhan;
     private javax.swing.JTextField jtxtSDT;
     private javax.swing.JTextField jtxtTenChuXe;
     private javax.swing.JLabel mStatus;
