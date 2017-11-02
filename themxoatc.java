@@ -55,7 +55,10 @@ public class themxoatc extends javax.swing.JInternalFrame {
         status = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
 
+        setClosable(true);
         setForeground(new java.awt.Color(204, 0, 0));
+        setIconifiable(true);
+        setMaximizable(true);
         setTitle("Thêm/ Xóa tiền công");
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -277,7 +280,7 @@ public class themxoatc extends javax.swing.JInternalFrame {
         PreparedStatement ps = null;
         ResultSet rs = null;
         String deletesql = "Delete From tiencong where idtc = ?";
-        String dbURL = "jdbc:sqlserver://127.0.0.1:1433;databaseName=garaoto;user=sa;password=sa";
+        String dbURL = "jdbc:sqlserver://127.0.0.1:1433;databaseName=GARAOTO;user=sa;password=1";
         try {
             conn = DriverManager.getConnection(dbURL);
             ps = conn.prepareStatement(deletesql);
@@ -312,7 +315,7 @@ public class themxoatc extends javax.swing.JInternalFrame {
         PreparedStatement ps = null;
         ResultSet rs = null;
 
-        String dbURL = "jdbc:sqlserver://127.0.0.1:1433;databaseName=garaoto;user=sa;password=sa";
+        String dbURL = "jdbc:sqlserver://127.0.0.1:1433;databaseName=GARAOTO;user=sa;password=1";
         
 
         try {
@@ -368,14 +371,14 @@ private void loadTable() {
         Connection conn = null;
         Statement st = null;
         ResultSet rs = null;
-        String dbURL = "jdbc:sqlserver://127.0.0.1:1433;databaseName=garaoto;user=sa;password=sa";
+        String dbURL ="jdbc:sqlserver://127.0.0.1:1433;databaseName=GARAOTO;user=sa;password=1";
       
         try {
             conn = DriverManager.getConnection(dbURL);
 
             
             // Câu lệnh xem dữ liệu
-            String sql = "select idtc, tentc, gia from TIENCONG";
+            String sql = "select idtc, tentc, gia from TIENCONG where idtc !=0 ";
             
 
             // Tạo đối tượng thực thi câu lệnh Select
@@ -439,7 +442,7 @@ int ret = JOptionPane.showConfirmDialog(this, "bạn muốn câp nhật lại d�
         PreparedStatement ps = null;
         ResultSet rs = null;
 
-        String dbURL = "jdbc:sqlserver://127.0.0.1:1433;databaseName=garaoto;user=sa;password=sa";
+        String dbURL = "jdbc:sqlserver://127.0.0.1:1433;databaseName=GARAOTO;user=sa;password=1";
         try {
             conn = DriverManager.getConnection(dbURL);
             ps = conn.prepareStatement(update);
@@ -499,7 +502,7 @@ int ret = JOptionPane.showConfirmDialog(this, "bạn muốn câp nhật lại d�
         dongia.setText(jTable1.getValueAt(jTable1.getSelectedRow(), 2).toString());
         them.setVisible(false);
         xoa.setVisible(true);
-        sua.setVisible(false);
+        sua.setVisible(true);
         
     }//GEN-LAST:event_jTable1MouseClicked
 
@@ -514,7 +517,7 @@ int ret = JOptionPane.showConfirmDialog(this, "bạn muốn câp nhật lại d�
                 return;
             }
         }
-        
+        // LÀM CHUNG 1 FRM H NÓ V ĐÔ. THỐI KÔ CMN ĐI. QUA PHÂ KHẦN
         if(chr>='0' && chr<='9'  )
         {
             jLabel4.setVisible(true);
@@ -522,12 +525,12 @@ int ret = JOptionPane.showConfirmDialog(this, "bạn muốn câp nhật lại d�
             sua.setVisible(false);
             jLabel4.setText(" Bạn đã nhập sai!");
             loaitc.setText("");
-            return;
+        //    return;
        }else{
 //            them.setVisible(true);
-            sua.setVisible(true);
+          //  sua.setVisible(true);
         }
-             
+             // ĐĐ IM
         
         if(xe.length()<5||xe.length()>29){
             jLabel4.setText(" Tên không tiền công không đúng!");

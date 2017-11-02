@@ -14,6 +14,8 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import Process.Check;
+import sun.security.provider.certpath.ResponderId;
 
 /**
  *
@@ -51,7 +53,7 @@ public class ThemPhuTung extends javax.swing.JInternalFrame {
         setIconifiable(true);
         setMaximizable(true);
         setResizable(true);
-        setTitle("Nhập Phụ Tùng");
+        setTitle("Thêm phụ tùng");
 
         jLabel2.setText("Tên phụ tùng");
 
@@ -63,12 +65,17 @@ public class ThemPhuTung extends javax.swing.JInternalFrame {
 
         jLabel3.setText("Giá phụ tùng");
 
-        jLabel4.setText("Số lượng tồn");
+        jLabel4.setText("Số lượng ");
 
         bThem.setText("Thêm");
         bThem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bThemActionPerformed(evt);
+            }
+        });
+        bThem.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                bThemKeyPressed(evt);
             }
         });
 
@@ -157,21 +164,66 @@ public class ThemPhuTung extends javax.swing.JInternalFrame {
             
         try {
             
-
+            if(this.jtxtTenPhuTung.getText().isEmpty()){
+                JOptionPane.showMessageDialog(null, "Tên phụ tùng không được để trống","Thông báo lỗi", 1);
+                return;
+            }
+            if(this.jtxtTenPhuTung.getText().length() > 15){
+                JOptionPane.showMessageDialog(null, "Tên phụ tùng đã quá 20 kí tự","Thông báo lỗi", 1);
+                return;
+            }
+            if(Check.checkSb(this.jtxtTenPhuTung.getText())==true){
+                JOptionPane.showMessageDialog(null, "Tên phụ tùng không được có kí tự đặc biệt","Thông báo lỗi",1);
+                return;
+            }
+            if(Check.checkNum(this.JtxtGiaPhuTung.getText())==false){
+                JOptionPane.showMessageDialog(null, "Giá không hợp lệ","Thông báo lỗi",2);
+                return;
+            }
+            
+            if(this.JtxtGiaPhuTung.getText().isEmpty()){
+                JOptionPane.showMessageDialog(null, "Giá lượng không được để trống","Thông báo lỗi",2);
+                return;
+            }
+            
+            if(Integer.valueOf(JtxtGiaPhuTung.getText())<=0){
+                JOptionPane.showMessageDialog(null, "Giá phải lớn hơn 0","Thông báo lỗi",2);
+                return;
+            }
+            
+            if(Check.checkNum(this.jtxtSoLuongTon.getText())==false){
+                JOptionPane.showMessageDialog(null, "Số lượng không hợp lệ","Thông báo lỗi",3);
+                return;
+            }
+            if(this.jtxtSoLuongTon.getText().isEmpty()){
+                JOptionPane.showMessageDialog(null, "Số lượng không được để trống","Thông báo lỗi",3);
+                return;
+            }
+            
+            if(Integer.valueOf(jtxtSoLuongTon.getText())<   0){
+                JOptionPane.showMessageDialog(null, "Số lượng phải lơn hơn 0","Thông báo lỗi",3);
+                return;
+            }
+            
+  
+            
+  
+            
+            
+            
+            
+            
 //            ps.setInt(1,Integer.valueOf(JtxtMaPhuTung.getText()));
             ps.setString(1, jtxtTenPhuTung.getText());
             ps.setInt(2,Integer.valueOf(JtxtGiaPhuTung.getText()));
             ps.setInt(3,Integer.valueOf(jtxtSoLuongTon.getText()));
-        if(this.jtxtTenPhuTung.getText().length()==0)
-            JOptionPane.showMessageDialog(null, "Tên phụ tùng không được để trống","Thông báo lỗi", 1);
-        else
-            if(this.jtxtTenPhuTung.getText().length() > 15)
-                JOptionPane.showMessageDialog(null, "Tên phụ tùng đã quá 20 kí tự","Thông báo lỗi", 1);
+        
             
           
             int ret = ps.executeUpdate();
             mStatus.setText("Thêm phụ tùng thành công.");
         } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, e.getMessage(),"Thông báo lỗi", 1);
             e.printStackTrace();
            
             
@@ -205,6 +257,12 @@ public class ThemPhuTung extends javax.swing.JInternalFrame {
     private void jtxtTenPhuTungActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxtTenPhuTungActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jtxtTenPhuTungActionPerformed
+
+    private void bThemKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_bThemKeyPressed
+        // TODO add your handling code here:
+      
+        
+    }//GEN-LAST:event_bThemKeyPressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -287,7 +287,7 @@ public class LapPhieuSuaChua extends javax.swing.JInternalFrame {
         Connection conn = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
-        String dbURL = "jdbc:sqlserver://Administrator\\mssqlserver:1433;databaseName=garaoto;user=cnpm;password=sa";
+        String dbURL = "jdbc:sqlserver://127.0.0.1:1433;databaseName=GARAOTO;user=sa;password=1";
         
         int indexMaTN = jComboBoxMaTN.getSelectedIndex();
         if(indexMaTN <0) // khong ma nao duoc chon.
@@ -356,7 +356,7 @@ public class LapPhieuSuaChua extends javax.swing.JInternalFrame {
         Connection conn = null;
         Statement st = null;
         ResultSet rs = null;
-        String dbURL = "jdbc:sqlserver://Administrator\\mssqlserver:1433;databaseName=garaoto;user=cnpm;password=sa";
+        String dbURL = "jdbc:sqlserver://127.0.0.1:1433;databaseName=GARAOTO;user=sa;password=1";
 
         int index = jComboBoxMaTN.getSelectedIndex();
         if(index <0) // khong kho nao duoc chon.
@@ -430,7 +430,7 @@ public class LapPhieuSuaChua extends javax.swing.JInternalFrame {
         Connection conn = null;
         Statement st = null;
         ResultSet rs = null;
-        String dbURL = "jdbc:sqlserver://Administrator\\mssqlserver:1433;databaseName=garaoto;user=cnpm;password=sa";
+        String dbURL = "jdbc:sqlserver://127.0.0.1:1433;databaseName=GARAOTO;user=sa;password=1";
 
         try {
             conn = DriverManager.getConnection(dbURL);
@@ -496,7 +496,7 @@ public class LapPhieuSuaChua extends javax.swing.JInternalFrame {
         Connection conn = null;
         Statement st = null;
         ResultSet rs = null;
-        String dbURL = "jdbc:sqlserver://Administrator\\mssqlserver:1433;databaseName=garaoto;user=cnpm;password=sa";
+        String dbURL = "jdbc:sqlserver://127.0.0.1:1433;databaseName=GARAOTO;user=sa;password=1";
 
         try {
             conn = DriverManager.getConnection(dbURL);
@@ -575,7 +575,7 @@ public class LapPhieuSuaChua extends javax.swing.JInternalFrame {
         PreparedStatement ps = null;
         ResultSet rs = null;
         String deletesql = "Delete From CTSC where idCTSC = ?";
-        String dbURL = "jdbc:sqlserver://Administrator\\mssqlserver:1433;databaseName=garaoto;user=cnpm;password=sa";
+        String dbURL = "jdbc:sqlserver://127.0.0.1:1433;databaseName=GARAOTO;user=sa;password=1";
         try {
             conn = DriverManager.getConnection(dbURL);
             ps = conn.prepareStatement(deletesql);
@@ -614,7 +614,7 @@ public class LapPhieuSuaChua extends javax.swing.JInternalFrame {
     Connection conn = null;
         Statement st = null;
         ResultSet rs = null;
-        String dbURL = "jdbc:sqlserver://Administrator\\mssqlserver:1433;databaseName=garaoto;user=cnpm;password=sa";
+        String dbURL = "jdbc:sqlserver://127.0.0.1:1433;databaseName=GARAOTO;user=sa;password=1";
 
         try {
             conn = DriverManager.getConnection(dbURL);
@@ -673,13 +673,13 @@ public class LapPhieuSuaChua extends javax.swing.JInternalFrame {
     Connection conn = null;
         Statement st = null;
         ResultSet rs = null;
-        String dbURL = "jdbc:sqlserver://Administrator\\mssqlserver:1433;databaseName=garaoto;user=cnpm;password=sa";
+        String dbURL = "jdbc:sqlserver://127.0.0.1:1433;databaseName=garaoto;user=sa;password=1";
 
         try {
             conn = DriverManager.getConnection(dbURL);
 
             // Câu lệnh xem dữ liệu
-            String sql = "select idpt, TenPT from Phutung";
+            String sql = "select idpt, TenPT from Phutung  ";
 
             // Tạo đối tượng thực thi câu lệnh Select
             st = conn.createStatement();
@@ -690,7 +690,7 @@ public class LapPhieuSuaChua extends javax.swing.JInternalFrame {
             DefaultComboBoxModel cmbModel = new DefaultComboBoxModel();
 
             // Nếu sách không tồn tại
-            if (rs.isBeforeFirst() == false) {
+                        if (rs.isBeforeFirst() == false) {
                 JOptionPane.showMessageDialog(this, "Phụ tùng khong có sẵn");
                 return;
             }
@@ -731,7 +731,7 @@ public class LapPhieuSuaChua extends javax.swing.JInternalFrame {
     Connection conn = null;
         Statement st = null;
         ResultSet rs = null;
-        String dbURL = "jdbc:sqlserver://Administrator\\mssqlserver:1433;databaseName=garaoto;user=cnpm;password=sa";
+        String dbURL = "jdbc:sqlserver://127.0.0.1:1433;databaseName=garaoto;user=sa;password=1";
 
         try {
             conn = DriverManager.getConnection(dbURL);
