@@ -155,7 +155,7 @@ public class frmThuTien extends javax.swing.JInternalFrame {
     Connection conn = null;
         Statement st = null;
         ResultSet rs = null;
-        String dbURL = "jdbc:sqlserver://Administrator\\mssqlserver:1433;databaseName=garaoto;user=cnpm;password=sa";
+        String dbURL = "jdbc:sqlserver://127.0.0.1:1433;databaseName=GARAOTO;user=sa;password=1";
 
         try {
             conn = DriverManager.getConnection(dbURL);
@@ -218,7 +218,7 @@ public class frmThuTien extends javax.swing.JInternalFrame {
         PreparedStatement ps = null;
         ResultSet rs = null;
         // vô coi lỗi chỗ nào hộ t cái
-        String dbURL = "jdbc:sqlserver://Administrator\\mssqlserver:1433;databaseName=garaoto;user=cnpm;password=sa";
+        String dbURL = "jdbc:sqlserver://127.0.0.1:1433;databaseName=GARAOTO;user=sa;password=1";
         String insert = "INSERT INTO hoadon (idtn,ngay,tongtien) VALUES(?,getdate(),?) exec tongtien";
 
         int index = jComboBox1.getSelectedIndex();
@@ -269,7 +269,7 @@ public class frmThuTien extends javax.swing.JInternalFrame {
         Connection conn = null;
         Statement st = null;
         ResultSet rs = null;
-        String dbURL = "jdbc:sqlserver://Administrator\\mssqlserver:1433;databaseName=garaoto;user=cnpm;password=sa";
+        String dbURL = "jdbc:sqlserver://127.0.0.1:1433;databaseName=GARAOTO;user=sa;password=1";
 
         
         try {

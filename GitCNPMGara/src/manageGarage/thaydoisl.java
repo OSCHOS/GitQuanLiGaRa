@@ -138,7 +138,7 @@ public class thaydoisl extends javax.swing.JInternalFrame {
         ResultSet rs = null;
        int x=Integer.parseInt(jTextField1.getText());
 
-        String dbURL = "jdbc:sqlserver://127.0.0.1:1433;databaseName=garaoto;user=sa;password=sa";
+        String dbURL = "jdbc:sqlserver://127.0.0.1:1433;databaseName=GARAOTO;user=sa;password=1";
         String insert = "ALTER trigger [dbo].[TIEPN] on [dbo].[TIEPNHAN]\n" +
 "	for insert\n" +
 "	as\n" +

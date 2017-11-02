@@ -115,7 +115,7 @@ public class NhapPhuTung extends javax.swing.JInternalFrame {
             conn = DriverManager.getConnection(dbURL);
 
             // Câu lệnh xem dữ liệu
-            String sql = "select idPT,TENPT from PHUTUNG ";
+            String sql = "select idPT,TENPT from PHUTUNG where idpt != 0";
             // Tạo đối tượng thực thi câu lệnh Select
             st = conn.createStatement();
 
@@ -430,10 +430,15 @@ public class NhapPhuTung extends javax.swing.JInternalFrame {
         }
             
         try {
-            if(Check.checkNum2(this.jtxtSoLuongNhap.getText())==true){
-                JOptionPane.showMessageDialog(null, "Số lượng không được nhập chữ","Thông báo lỗi",3);
+            if(Check.checkNum(this.jtxtSoLuongNhap.getText())==false){
+                JOptionPane.showMessageDialog(null, "Số lượng nhập không hợp lệ","Thông báo lỗi",3);
                 return;
             }
+            if(Integer.valueOf(this.jtxtSoLuongNhap.getText())<=0){
+                JOptionPane.showMessageDialog(null, "Số lượng nhập phải lơn hơn 0","Thông báo lỗi",3);
+                return;
+            }
+           
 
 //            ps.setInt(1,Integer.valueOf(JtxtMaPhuTung.getText()));
             Vector item = (Vector)jComboBoxTenPT.getSelectedItem();
@@ -442,7 +447,7 @@ public class NhapPhuTung extends javax.swing.JInternalFrame {
 //            Date sqlDate=new Date(date.getYear(),date.getMonth(),date.getDate());
             ps.setInt(1, idPT);
  //           ps.setDate(2, sqlDate);
-            ps.setInt(2, Integer.valueOf(jtxtSoLuongNhap.getText()));
+            ps.setString(2, jtxtSoLuongNhap.getText());
             
            
         
@@ -457,10 +462,9 @@ public class NhapPhuTung extends javax.swing.JInternalFrame {
 //            jTablePT.setValueAt(sqlDate.toString(), row, 2);
 //            jTablePT.setValueAt(Integer.valueOf(jtxtSoLuongNhap.getText()), row, 3);
 //            row++;
-        } catch (Exception e) {
-            e.printStackTrace();
-           
-            
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(this, e.getMessage(), "LỖI DỮ LIỆU NHẬP!", 1);
+                e.printStackTrace();
         } finally {
             try {
                 if (conn != null) {
@@ -474,8 +478,9 @@ public class NhapPhuTung extends javax.swing.JInternalFrame {
                 if (ps != null) {
                     ps.close();
                 }
-            } catch (Exception ex2) {
+            } catch (SQLException ex2) {
                 ex2.printStackTrace();
+                JOptionPane.showMessageDialog(this, ex2.getMessage(), "LỖI DỮ LIỆU NHẬP!", 1);
             }
         }
                                            

@@ -191,7 +191,7 @@ public class thongkedoanhso extends javax.swing.JInternalFrame {
         Connection conn = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
-        String dbURL = "jdbc:sqlserver://Administrator\\mssqlserver:1433;databaseName=garaoto;user=cnpm;password=sa";
+        String dbURL = "jdbc:sqlserver://127.0.0.1:1433;databaseName=GARAOTO;user=sa;password=1";
 
         try {
             conn = DriverManager.getConnection(dbURL);
@@ -270,7 +270,7 @@ public class thongkedoanhso extends javax.swing.JInternalFrame {
         Connection conn = null;
         Statement st = null;
         ResultSet rs = null;
-        String dbURL = "jdbc:sqlserver://Administrator\\mssqlserver:1433;databaseName=garaoto;user=cnpm;password=sa";
+        String dbURL = "jdbc:sqlserver://127.0.0.1:1433;databaseName=GARAOTO;user=sa;password=1";
 
         try {
             conn = DriverManager.getConnection(dbURL);
@@ -327,7 +327,7 @@ public class thongkedoanhso extends javax.swing.JInternalFrame {
         Connection conn = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
-        String dbURL = "jdbc:sqlserver://Administrator\\mssqlserver:1433;databaseName=garaoto;user=cnpm;password=sa";
+        String dbURL = "jdbc:sqlserver://127.0.0.1:1433;databaseName=GARAOTO;user=sa;password=1";
 
         try {
             conn = DriverManager.getConnection(dbURL);

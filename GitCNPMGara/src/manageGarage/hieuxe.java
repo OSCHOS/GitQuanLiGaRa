@@ -33,7 +33,6 @@ public class hieuxe extends javax.swing.JInternalFrame {
     public hieuxe() {
         initComponents();
         loadTable();
-        sua.setVisible(false);
         xoa.setVisible(false);
         
     }
@@ -52,7 +51,6 @@ public class hieuxe extends javax.swing.JInternalFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         them = new javax.swing.JButton();
-        sua = new javax.swing.JButton();
         xoa = new javax.swing.JButton();
         thoat = new javax.swing.JButton();
         status = new javax.swing.JLabel();
@@ -120,13 +118,6 @@ public class hieuxe extends javax.swing.JInternalFrame {
             }
         });
 
-        sua.setText("Cập nhật");
-        sua.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                suaActionPerformed(evt);
-            }
-        });
-
         xoa.setText("Xóa");
         xoa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -167,9 +158,12 @@ public class hieuxe extends javax.swing.JInternalFrame {
                         .addContainerGap()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 324, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(them, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(sua, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(them, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(87, 87, 87)
+                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(thoat, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -182,15 +176,10 @@ public class hieuxe extends javax.swing.JInternalFrame {
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(nhaptenhx, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(87, 87, 87)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(36, 36, 36)
-                        .addComponent(xoa, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(thoat, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(nhaptenhx, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(45, 45, 45)
+                                .addComponent(xoa, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addGap(87, 87, 87))
             .addGroup(layout.createSequentialGroup()
                 .addGap(33, 33, 33)
@@ -207,13 +196,9 @@ public class hieuxe extends javax.swing.JInternalFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(8, 8, 8)
                         .addComponent(them)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(sua)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(thoat)
-                            .addComponent(xoa))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(thoat)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
                         .addComponent(status)
                         .addGap(35, 35, 35))
                     .addGroup(layout.createSequentialGroup()
@@ -224,10 +209,12 @@ public class hieuxe extends javax.swing.JInternalFrame {
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(nhaptenhx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(nhaptenhx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(xoa)))
                         .addGap(18, 18, 18)
                         .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addContainerGap(29, Short.MAX_VALUE))))
         );
 
         pack();
@@ -238,7 +225,7 @@ public class hieuxe extends javax.swing.JInternalFrame {
         PreparedStatement ps = null;
         ResultSet rs = null;
 
-        String dbURL = "jdbc:sqlserver://127.0.0.1:1433;databaseName=garaoto;user=sa;password=sa";
+        String dbURL = "jdbc:sqlserver://127.0.0.1:1433;databaseName=GARAOTO;user=sa;password=1";
         String insert = "INSERT INTO hieuxe (tenhx) VALUES(?)";
 
         try {
@@ -277,58 +264,6 @@ public class hieuxe extends javax.swing.JInternalFrame {
         loadTable();
     }//GEN-LAST:event_themActionPerformed
 
-    private void suaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_suaActionPerformed
-        int ret = JOptionPane.showConfirmDialog(this, "bạn muốn câp nhật lại dữ liệu?", "Confirm", JOptionPane.YES_NO_OPTION);
-        if (ret != JOptionPane.YES_OPTION) {
-            return;
-        }
-
-        String update = "update hieuxe set tenhx = ? where idhx = ?";
-        //System.out.println(update);
-
-        Connection conn = null;
-        PreparedStatement ps = null;
-        ResultSet rs = null;
-
-        String dbURL = "jdbc:sqlserver://127.0.0.1:1433;databaseName=garaoto;user=sa;password=sa";
-        try {
-            conn = DriverManager.getConnection(dbURL);
-            ps = conn.prepareStatement(update);
-
-            ps.setString(1, nhaptenhx.getText());
-            ps.setInt(2, Integer.parseInt(nhapmahx.getText()));
-
-            ret = ps.executeUpdate();
-            if (ret != -1) {
-                status.setText("cập nhật thành công");
-            }
-            //this.search();
-            nhapmahx.setText("");
-            nhaptenhx.setText("");
-
-        } catch (Exception e) {
-            e.printStackTrace();
-            JOptionPane.showMessageDialog(this, e.getMessage() , "Lỗi", 1);
-        } finally {
-            try {
-                if (conn != null) {
-                    conn.close();
-                }
-
-                if (rs != null) {
-                    rs.close();
-                }
-
-                if (ps != null) {
-                    ps.close();
-                }
-            } catch (Exception ex2) {
-                ex2.printStackTrace();
-            }
-        }
-        loadTable();
-    }//GEN-LAST:event_suaActionPerformed
-
     private void thoatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_thoatActionPerformed
         this.dispose();
     }//GEN-LAST:event_thoatActionPerformed
@@ -350,7 +285,7 @@ public class hieuxe extends javax.swing.JInternalFrame {
         PreparedStatement ps = null;
         ResultSet rs = null;
         String deletesql = "Delete From hieuxe where idhx = ?";
-        String dbURL = "jdbc:sqlserver://127.0.0.1:1433;databaseName=garaoto;user=sa;password=sa";
+        String dbURL = "jdbc:sqlserver://127.0.0.1:1433;databaseName=GARAOTO;user=sa;password=1";
         try {
             conn = DriverManager.getConnection(dbURL);
             ps = conn.prepareStatement(deletesql);
@@ -389,7 +324,7 @@ public class hieuxe extends javax.swing.JInternalFrame {
         nhaptenhx.setText(jTable1.getValueAt(jTable1.getSelectedRow(), 1).toString());
         them.setVisible(false);
         xoa.setVisible(true);
-        sua.setVisible(false);
+
     }//GEN-LAST:event_jTable1MouseClicked
 
     private void jTable1AncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jTable1AncestorAdded
@@ -416,13 +351,11 @@ public class hieuxe extends javax.swing.JInternalFrame {
         {
             jLabel4.setVisible(true);
             them.setVisible(false);
-            sua.setVisible(false);
             jLabel4.setText(" Bạn đã nhập sai! ");
             nhaptenhx.setText("");
             return;
        }else{
             them.setVisible(true);
-            sua.setVisible(true);
         }
         //jLabel4.setVisible(false);
     }//GEN-LAST:event_nhaptenhxKeyPressed
@@ -438,7 +371,6 @@ public class hieuxe extends javax.swing.JInternalFrame {
     private javax.swing.JTextField nhapmahx;
     private javax.swing.JTextField nhaptenhx;
     private javax.swing.JLabel status;
-    private javax.swing.JButton sua;
     private javax.swing.JButton them;
     private javax.swing.JButton thoat;
     private javax.swing.JButton xoa;
@@ -450,14 +382,14 @@ public class hieuxe extends javax.swing.JInternalFrame {
         ResultSet rs = null;// chhuoi ket noi bi sai
         // bt vẫn ket nối mà
         // mọi khi vẫn chạy bt 
-        String dbURL = "jdbc:sqlserver://127.0.0.1:1433;databaseName=garaoto;user=sa;password=sa";
+        String dbURL = "jdbc:sqlserver://127.0.0.1:1433;databaseName=GARAOTO;user=sa;password=1";
       
         try {
             conn = DriverManager.getConnection(dbURL);
 
             
             // Câu lệnh xem dữ liệu
-            String sql = "select idhx, tenhx from hieuxe";
+            String sql = "select idhx, tenhx from hieuxe where idhx != 0";
             
 
             // Tạo đối tượng thực thi câu lệnh Select

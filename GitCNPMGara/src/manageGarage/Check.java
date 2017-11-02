@@ -38,7 +38,7 @@ public class Check {
         }
         return b;
     }
-    public static boolean checkNum2(String s){
+    /*public static boolean checkNum2(String s){
         boolean b=false;
         char a[]=s.toCharArray();
         for(int i=0;i<a.length;i++){
@@ -48,6 +48,7 @@ public class Check {
             }
         }
         return b;
-    }
+    }*/
+            
 
 }
